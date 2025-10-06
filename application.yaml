@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cicd-demo-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Wilsonn06/CICD-Demo-Config.git
+    targetRevision: HEAD
+    path: dev
+    
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cicd-demo
+  
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+  
+    #untuk mengaktifkan sync otomatis
+    automated:
+      selfHeal: true
+      prune: true
