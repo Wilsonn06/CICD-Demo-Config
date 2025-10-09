@@ -14,6 +14,6 @@ spec:
     spec: 
       containers:
       - name: cicd-demo
-        image: wilsonnn06/cicd-demo:1.0
+        image: wilsonnn06/cicd-demo:39
         ports: 
         - containerPort: 8080
